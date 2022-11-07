@@ -1,4 +1,4 @@
-package SummerWinterCoding;
+package SummerWinterCoding.HashadNumber;
 
 class Solution {
     public static void main(String[] args) {
