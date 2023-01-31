@@ -28,12 +28,9 @@ class Solution {
                 result = result + count[e_index];
                 //귤 종류 하나 추가
                 answer += 1;
-                //다음 셈을 위한 인덱스
-                e_index--;
-            } else{ //k보다 결과가 커진다면 <-- 여기가 문제다!!!
-                result = k;
-                answer = 1;
             }
+            //다음 셈을 위한 인덱스 <-- 밖으로 빼주기! 위 if문이 성립 안되어도 e_index는 움직여야 한다.
+            e_index--;
 
             //셈할 숫자가 0이라면
             if(count[e_index] == 0){
@@ -45,6 +42,11 @@ class Solution {
                 s_index--;
                 //시작할 인덱스 물려받기
                 e_index = s_index;
+                //시작할 인덱스의 값이 0이라면 경우의 수 무조건 1개(k로 나누어 떨어지는 경우의 수가 없으니 보다 많은 것 중 k개 만큼 고른다)
+                if(count[e_index] == 0){
+                    answer = 1;
+                    result = k;
+                }
             }
         }
 
