@@ -4,6 +4,7 @@ import java.util.*;
 
 /*
  * 투 포인터 사용
+ * 정확도 합계: 67.6 / 100.0
  */
 class Solution {
     public int solution(int k, int[] tangerine) {
