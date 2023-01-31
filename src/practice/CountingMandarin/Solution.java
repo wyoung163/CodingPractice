@@ -4,47 +4,48 @@ import java.util.*;
 
 /*
  * 투 포인터 사용
- * 정확도 합계: 67.6 / 100.0
+ * 정확성: 79.4
+ * 합계: 79.4 / 100.0
  */
 class Solution {
     public int solution(int k, int[] tangerine) {
         int answer = 0, result = 0;
         int[] count = new int[10000000];
-        // count = new Integer[1000];
         int s_index = 9999999, e_index = 9999999;
 
         for(int i = 0; i < tangerine.length; i++){
             count[tangerine[i]] += 1;
         }
 
-        //내림차순
         Arrays.sort(count);
 
-        //셈의 합이 k가 아니고 인덱스 범위가 올바를 때
-        while(result != k && s_index > 0 && e_index > 0){
-            //지금까지의 합과 새 셈을 더했을 때 k와 같거나 넘지 않으면
+        while(result != k){
             if(result + count[e_index] <= k){
-                //셈 더해주기
                 result = result + count[e_index];
-                //귤 종류 하나 추가
                 answer += 1;
             }
-            //다음 셈을 위한 인덱스 <-- 밖으로 빼주기! 위 if문이 성립 안되어도 e_index는 움직여야 한다.
             e_index--;
 
-            //셈할 숫자가 0이라면
             if(count[e_index] == 0){
-                //초기화
                 result = 0;
-                //초기화
                 answer = 0;
-                //시작 인덱스 앞으로 옮기기
                 s_index--;
-                //시작할 인덱스 물려받기
                 e_index = s_index;
-                //시작할 인덱스의 값이 0이라면 경우의 수 무조건 1개(k로 나누어 떨어지는 경우의 수가 없으니 보다 많은 것 중 k개 만큼 고른다)
-                if(count[e_index] == 0){
-                    answer = 1;
+
+                //합산 결과가 k로 나누어 떨어지지 않을 때 경우의 수가 무조건 1이 되는 것이 아니라 맨 처음 셈이 k보다 작으면 모자란 만큼 다음 인덱스의 셈에서 값 충당 필요
+                //그러면 경우의 수는 1보다 커짐
+                if(count[s_index] == 0){
+                    int index = 9999999;
+                    while(result < k){
+                        if(count[index] > k){
+                            answer += 1;
+                            result = k;
+                        } else{
+                            result = result + count[index];
+                            answer += 1;
+                        }
+                        index--;
+                    }
                     result = k;
                 }
             }
