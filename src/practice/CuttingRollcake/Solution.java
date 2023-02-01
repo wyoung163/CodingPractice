@@ -22,7 +22,7 @@ class Solution {
                 hs_r.add(topping[i]);
                 i++;
             }
-            
+
             if(hs_l.size() < hs_r.size() && c <= 0){
                 c = -1;
                 division++;
