@@ -42,10 +42,6 @@ class Solution3 {
                 sum += cnt.get(key[i]);
                 answer++;
             }
-
-            if(sum == k){
-                break;
-            }
         }
 
         return answer;
