@@ -1,7 +1,12 @@
 package StackAndQueue.CorrectBracket;
 
 import java.util.*;
-
+/*
+    <큐> 이용
+    굳이 다 넣고 하나씩 빼면서 확인할 필요 없을 것 같음
+    너무 비효율적
+    오류 2 케이스 발생
+ */
 class Solution {
     boolean solution(String s) {
         boolean answer = false;
