@@ -12,12 +12,15 @@ class Solution {
         for (int i : reserve) {
             reserveList.add(i);
         }
-
-        for(int i = 0; i < lost.length; i++){
-            if(reserveList.contains(lost[i])){
+        for(int i = 0; i < lost.length; i++) {
+            if (reserveList.contains(lost[i])) {
                 answer++;
                 reserveList.remove(reserveList.indexOf(lost[i]));
-            } else if(reserveList.contains(lost[i] + 1)){
+            }
+        }
+
+        for(int i = 0; i < lost.length; i++){
+            if(reserveList.contains(lost[i] + 1)){
                 answer++;
                 reserveList.remove(reserveList.indexOf(lost[i] + 1));
             } else if (reserveList.contains(lost[i]-1)) {
