@@ -8,6 +8,9 @@ class Solution2 {
         int answer = 0;
         Queue<String> cache = new LinkedList<>();
 
+        //캐시 사이즈가 0일 때 상황을 따로 고려해야 함
+        if(cacheSize == 0) return 5 * cities.length;
+
         for(String city: cities){
 
             if(cache.contains(city.toLowerCase())){
