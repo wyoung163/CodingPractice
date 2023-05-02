@@ -16,17 +16,12 @@ class Solution {
                     cal *= 10;
                     i++;
                 }
-                //System.out.println(cal);
             } else if(ch[i] == 'S'){
                 continue;
             } else if(ch[i] == 'D'){
                 cal = (int)Math.pow(cal, 2);
-                //System.out.println(cal);
-
             } else if(ch[i] == 'T'){
                 cal = (int)Math.pow(cal, 3);
-                //System.out.println(cal);
-
             } else if(ch[i] == '*'){
                 if(n > 0){
                     num[n-1] *= 2;
