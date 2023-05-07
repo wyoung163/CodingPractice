@@ -4,6 +4,8 @@ import java.util.*;
 
 //DFS BFS 모두 가능
 //주어진 wires에서 하나의 사례가 해당하지 않는 사례로 만들어(전선을 끊어) 연결된 송전탑 개수 구하기
+//참고: https://arinnh.tistory.com/84
+//출처: https://velog.io/@minsang96/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Level2-%EC%A0%84%EB%A0%A5%EB%A7%9D%EC%9D%84-%EB%91%98%EB%A1%9C-%EB%82%98%EB%88%84%EA%B8%B0-Java
 class Solution {
     ArrayList<Integer>[] arrs;
     boolean[] visited;
