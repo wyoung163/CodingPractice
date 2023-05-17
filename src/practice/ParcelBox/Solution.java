@@ -2,6 +2,7 @@ package practice.ParcelBox;
 
 import java.util.*;
 
+//문제점 발견: stack에 keep할 필요가 없는 수가 stack에 추가되는 문제
 class Solution {
     public int solution(int[] order) {
         Stack<Integer> stack = new Stack<>();
