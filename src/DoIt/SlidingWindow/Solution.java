@@ -28,7 +28,7 @@ public class Solution {
             while(!mydeque.isEmpty() && mydeque.getLast().value > now){
                 mydeque.removeLast();
             }
-            mydeque.addLast(new Node(now, i);
+            mydeque.addLast(new Node(now, i));
 
             if(mydeque.getFirst().index <= i - l){
                 mydeque.removeFirst();
