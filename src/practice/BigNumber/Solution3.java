@@ -1,5 +1,6 @@
 package practice.BigNumber;
 
+//다시 도전할 문제
 public class Solution3 {
     public String solution(String number, int k){
         String answer = "";
