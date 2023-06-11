@@ -3,10 +3,14 @@ package DoIt.TopologicalSorting;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.*;
 
-public class Solution054 {
+/*
+    054 게임 개발
+    위상정렬 진입차수 배열
+    게임에서 특정 건물을 짓기 위해 먼저 지어야 할 건물 고려하기
+ */
+public class Solution2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
