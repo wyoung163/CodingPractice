@@ -74,6 +74,7 @@ public class Solution4 {
                 //bacon.num으로 시작하는 경로 어디든 갈 수 있음
                 int num = arr[bacon.num][i];
 
+                //num == 1일 때, 연결된 경로임을 의미
                 if(num == 1 && visit[i] == false){
                     visit[i] = true;
                     queue.offer(new Bacon(i, bacon.value + 1));
