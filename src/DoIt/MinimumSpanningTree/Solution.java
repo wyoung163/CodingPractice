@@ -1,4 +1,4 @@
-package DoIt;
+package DoIt.MinimumSpanningTree;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ import java.util.Scanner;
     064 최소 신장 트리 구하기 정석 문제
  */
 
-public class MinimumSpanningTree {
+public class Solution {
     static int[] parent;
     static PriorityQueue<Edge> queue;
     public static void main(String[] args) {
