@@ -1,55 +1,47 @@
 package DoIt.Tree;
 
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /*
-    068 리프 노드의 개수 구하기
-    DFS(되돌아가는 return 코드 없음)
-    트리의 구조와 개념 이해
+    067 트리의 부모 찾기, DFS
  */
 public class Solution {
-    static ArrayList<Integer>[] tree;
-    static boolean[] visited;
-    static int answer = 0;
-    static int deleteNode = 0;
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        tree = new ArrayList[n];
-        int root = 0;
-        visited = new boolean[n];
-        for(int i = 0; i < n; i++){
-            tree[i] = new ArrayList<>();
+    static int[] parent;
+    static ArrayList<Integer>[] arr;
+    static int n;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        n = Integer.parseInt(br.readLine());
+        parent = new int[n+1];
+        arr = new ArrayList[n+1];
+        for(int i = 1; i <= n; i++){
+            arr[i] = new ArrayList<>();
         }
-        for(int i = 0; i < n; i++){
-            int p = sc.nextInt();
-            if (p != -1){
-                tree[i].add(p);
-                tree[p].add(i);
-            } else
-                root = i;
+        for(int i = 0; i < n-1; i++){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int s = Integer.parseInt(st.nextToken());
+            int e = Integer.parseInt(st.nextToken());
+            arr[s].add(e);
+            arr[e].add(s);
         }
-        deleteNode = sc.nextInt();
-        if(deleteNode == root)
-            System.out.println(0);
-        else {
-            DFS(root);
-            System.out.println(answer);
+        DFS(1);
+        for(int i = 2; i <= n; i++){
+            System.out.println(parent[i]);
         }
     }
-    static void DFS(int num){
-        visited[num] = true;
-        int cNode = 0;
-        for(int i : tree[num]){
-            if(visited[i] == false && i != deleteNode){
-                cNode++;
-                DFS(i);
+    static void DFS(int i){
+        for(int n: arr[i]){
+            if(parent[n] != 0)
+                continue;
+            else {
+                parent[n] = i;
+                DFS(n);
             }
-        }
-        if(cNode == 0){
-            answer++; // 자식 노드 아닐 때 리프 노드로 간주하고 정답값 증가
         }
     }
 }
