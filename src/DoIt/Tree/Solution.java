@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/*
+    067 트리의 부모 찾기, DFS
+ */
 public class Solution {
     static int[] parent;
     static ArrayList<Integer>[] arr;
