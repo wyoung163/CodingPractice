@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Solution_2 {
     static int[] parent;
-    static PriorityQueue<Edge> list;
+    static PriorityQueue<Edge> queue;
     static boolean visited[];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,18 +22,18 @@ public class Solution_2 {
         for(int i = 0; i < n; i++){
             parent[i] = i;
         }
-        list = new PriorityQueue<>();
+        queue = new PriorityQueue<>();
         for(int i = 0; i < m; i++){
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
-            list.add(new Edge(s, e, v));
+            queue.add(new Edge(s, e, v));
         }
         int useEdge = 0;
         int result = 0;
         while(useEdge < n-1){
-            pEdge now = queue.poll();
+            Edge now = queue.poll();
             if(find(now.s) != find(now.e)){ //같은 부모가 아니라면 연결해도 사이틀 안생김
                 union(now.s, now.e);
                 result = result + now.v;
@@ -44,8 +44,8 @@ public class Solution_2 {
     }
 
     public static void union(int a, int b){
-        int a = find(a);
-        int b = find(b);
+        a = find(a);
+        b = find(b);
         if(a != b){
             parent[b] = a;
         }
