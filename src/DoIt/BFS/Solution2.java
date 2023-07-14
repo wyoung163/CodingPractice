@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
     Problem 027
     미로 탐색하기
  */
-public class Solution02 {
+public class Solution2 {
     static int[] dx = {0, 1, 0, -1};
     static int[] dy = {1, 0, -1, 0};
     static boolean[][] visited;
@@ -23,6 +23,7 @@ public class Solution02 {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         visited = new boolean[n][m];
+        A = new int[n][m];
         for(int i = 0; i < n; i++){
             st = new StringTokenizer(br.readLine());
             String line = st.nextToken();
