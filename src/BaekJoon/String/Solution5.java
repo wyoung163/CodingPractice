@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 /*
    5534 간판
    [1] baraxbara 의 경우 bar 를 만들 수 있는 방법이 2가지임을 고려하지 못하는 문제
+   [2] name의 맨 첫 글자와 끝 글자 사이를 같은 간격으로 계속 조사
  */
 public class Solution5 {
     public static void main(String[] args) throws IOException {
@@ -18,34 +19,22 @@ public class Solution5 {
         }
 
         int cnt = 0;
-
         for(int i = 0; i < n; i++){
-            if(name.equals(pre[i])){
-                cnt++;
-                continue;
-            }
-            if(name.length() > pre[i].length()){
-                continue;
-            }
-            int[] gap = new int[name.length()];
-            for(int k = 0; k < name.length(); k++) {
-                for (int j = 0; j < pre[i].length(); j++) {
-                    if (name.charAt(k) == pre[i].charAt(j)){
-                        gap[k] = j;
-                        break;
+            int len = pre[i].length();
+            for(int j = 0; j < len; j++) {
+                if (pre[i].charAt(j) == name.charAt(0)){
+                    for(int k = len-1; k > j; k--){
+                        if(pre[i].charAt(k) == name.charAt(name.length()-1)){
+                            int gap = (k-j) / (name.length()-1);
+                            while(cnt < name.length()){
+                                if(pre[i].charAt(j+gap*cnt) == name.charAt(cnt)){
+                                    cnt++;
+                                    continue;
+                                }
+                            }
+                            break;
+                        }
                     }
-                }
-            }
-
-            if(gap[gap.length-1] == 0){
-                continue;
-            }
-            int g = gap[1] - gap[0];
-            cnt++;
-            for(int k = 2; k < gap.length; k++){
-                if(gap[k] - gap[k-1] != g){
-                    cnt--;
-                    break;
                 }
             }
         }
