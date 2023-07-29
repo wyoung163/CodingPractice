@@ -36,7 +36,7 @@ public class Solution5 {
         int m = Integer.parseInt(st.nextToken());
 
         arr = new int[n+1][n+1];
-        for(int i = 0; i < m; i++ {
+        for(int i = 0; i < m; i++){
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
