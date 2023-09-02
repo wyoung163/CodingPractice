@@ -1,7 +1,7 @@
 package practice.SQL.JOIN;
 
 /*
-    주문량이 많은 아이스크림들 조회하기
+    [조인] 주문량이 많은 아이스크림들 조회하기 (나의 풀이)
  */
 SELECT J.FLAVOR
 FROM FIRST_HALF F
