@@ -59,7 +59,7 @@ public class Solution {
         visited[i] = true;
         q.add(i);
 
-        for(!q.isEmpty()){
+        while (!q.isEmpty()){
             int n = q.poll();
             System.out.println(n+1 + " ");
             for(int v: arr[n]) {
